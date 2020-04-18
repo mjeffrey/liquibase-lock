@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    username: mj
+    password: mj
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: 'jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=nuc)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=PDB1)))'
+  jpa:
+    properties:
+      hibernate:
+        database-platform: org.hibernate.dialect.Oracle12cDialect
+
+  liquibase:
+    change-log: classpath:migrations.xml
