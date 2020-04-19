@@ -1,4 +1,4 @@
-package be.sysa.liquibaselock;
+package liquibase.ext;
 
 import liquibase.database.Database;
 import liquibase.database.core.OracleDatabase;
@@ -6,8 +6,6 @@ import liquibase.exception.DatabaseException;
 import liquibase.executor.ExecutorService;
 import liquibase.statement.core.RawCallStatement;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.Optional;
 
 /**
  * The user executing the liquibase changesets must granted execute on
@@ -49,6 +47,5 @@ public class OracleSessionBasedLockService extends AbstractLiquibaseSessionBased
     private String lockStatement( String procedureName, String lockName ){
         return String.format( templateString, lockName, procedureName);
     }
-
 
 }

@@ -1,4 +1,4 @@
-package be.sysa.liquibaselock;
+package liquibase.ext;
 
 import liquibase.database.Database;
 import liquibase.exception.DatabaseException;
@@ -8,6 +8,19 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public abstract class AbstractLiquibaseSessionBasedLockService extends StandardLockService {
+
+    /**
+     * The LockServiceFactory uses this to see if the class (previously found by the ServiceLocator) is a candidate
+     * for locking for this database.
+     */
+    @Override
+    public boolean supports(Database database) {
+        return sessionLockSupported(database);
+    }
+
+    /**
+     * When two LockServices can serve this Database the LockServiceFactory chooses the one with the highest priority.
+     */
     @Override
     public int getPriority() {
         return Integer.MAX_VALUE;

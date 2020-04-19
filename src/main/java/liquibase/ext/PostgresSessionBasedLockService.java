@@ -1,4 +1,4 @@
-package be.sysa.liquibaselock;
+package liquibase.ext;
 
 import liquibase.database.Database;
 import liquibase.database.core.PostgresDatabase;
