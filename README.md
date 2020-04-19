@@ -42,3 +42,4 @@ This has the advantage that it would work for most databases where liquibase loc
 ## Other Enhancements
 If liquibase checked if there were any changes to apply before taking the lock then auto scaling would not be broken (even if the lock was still there).
 It may also improve startup performance in the common case where ther are no DB changes. 
+
